@@ -17,11 +17,12 @@ Plug 'ts-26a/vim-darkspace'
 
 call plug#end()
 
-colorscheme darkspace
 
+colorscheme darkspace
 syntax on
 
 set termguicolors
+set guifont=Fira\ Code:h16
 set number              " show line numbers
 set ruler               " Show the line and column numbers of the cursor.
 set formatoptions+=o    " Continue comment marker in new lines.
@@ -30,15 +31,10 @@ set modeline            " Enable modeline.
 set esckeys             " Cursor keys in insert mode.
 set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
-" More natural splits
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
-if !&scrolloff
-  set scrolloff=3       " Show next 3 lines while scrolling.
-endif
-if !&sidescrolloff
-  set sidescrolloff=5   " Show next 5 columns while side-scrolling.
-endif
+set scrolloff=10       " Show next 10 lines while scrolling.
+set sidescrolloff=5   " Show next 5 columns while side-scrolling.
 set display+=lastline
 set nostartofline       " Do not jump to first character with page commands.
 set noerrorbells                " No beeps
@@ -62,6 +58,9 @@ set tabstop=4 shiftwidth=4 expandtab
 set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set magic               " Use 'magic' patterns (extended regular expressions).
 
+" rusty-tags
+autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
+
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -72,8 +71,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " darkspace
 
-" let g:darkspace_italics=2
-" let g:airline_theme='darkspace'
+let g:darkspace_italics=2
+let g:airline_theme='darkspace'
 
 " rust
 let g:rustfmt_autosave = 1
@@ -100,19 +99,16 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=500
+set updatetime=250
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=number
+
+call coc#add_extension('coc-rust-analyzer')
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -150,6 +146,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gb <c-o>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
