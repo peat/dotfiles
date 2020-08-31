@@ -24,6 +24,10 @@ syntax on
 
 set termguicolors
 set guifont=Fira\ Code:h16
+set nolist
+set wrap
+set linebreak
+set breakat&vim         " Soft wrap at whitespace 
 set number              " show line numbers
 set ruler               " Show the line and column numbers of the cursor.
 set formatoptions+=o    " Continue comment marker in new lines.
@@ -34,8 +38,8 @@ set linespace=0         " Set line-spacing to minimum.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
-set scrolloff=10       " Show next 10 lines while scrolling.
-set sidescrolloff=5   " Show next 5 columns while side-scrolling.
+set scrolloff=10        " Show next 10 lines while scrolling.
+set sidescrolloff=5     " Show next 5 columns while side-scrolling.
 set display+=lastline
 set nostartofline       " Do not jump to first character with page commands.
 set noerrorbells                " No beeps
@@ -43,7 +47,7 @@ set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
 set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
-set nobackup            	" Don't create annoying backup files
+set nobackup            	    " Don't create annoying backup files
 set encoding=utf-8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
