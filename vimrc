@@ -11,6 +11,8 @@ Plug 'ctrlpvim/ctrlp.vim' " file finder
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " language server protocol
 Plug 'cespare/vim-toml'   " toml syntax
 Plug 'rust-lang/rust.vim' " rust syntax
+Plug 'vim-ruby/vim-ruby'  " ruby syntax
+Plug 'ruby-formatter/rufo-vim' " ruby formatter
 Plug 'vim-syntastic/syntastic' " omg syntastic
 Plug 'vim-airline/vim-airline' " airline statusline
 Plug 'ts-26a/vim-darkspace'  
@@ -66,6 +68,9 @@ set magic               " Use 'magic' patterns (extended regular expressions).
 
 " rusty-tags
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
+
+" rufo (ruby format)
+let g:rufo_auto_formatting = 1
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
