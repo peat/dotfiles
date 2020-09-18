@@ -26,7 +26,7 @@ syntax on
 
 set termguicolors
 set guifont=Fira\ Code:h16
-set spell spelllang=en_us
+set spelllang=en_us
 set nolist
 set wrap
 set linebreak
