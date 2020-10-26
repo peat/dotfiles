@@ -16,7 +16,6 @@ Plug 'ruby-formatter/rufo-vim' " ruby formatter
 Plug 'vim-syntastic/syntastic' " omg syntastic
 Plug 'vim-airline/vim-airline' " airline statusline
 Plug 'ts-26a/vim-darkspace'  
-Plug 'tpope/vim-fugitive' 
 
 call plug#end()
 
