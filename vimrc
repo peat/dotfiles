@@ -21,7 +21,9 @@ call plug#end()
 
 
 colorscheme darkspace
-syntax on
+syntax enable
+filetype plugin indent on
+
 
 set termguicolors
 set guifont=Fira\ Code:h16
@@ -75,19 +77,19 @@ let g:rufo_auto_formatting = 1
 map <C-n> :NERDTreeToggle<CR>
 
 " ctrlp
-"
 " ignore git ignored files
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " turn off caching
 let g:ctrlp_use_caching = 0
 
 " darkspace
-
 let g:darkspace_italics=2
 let g:airline_theme='darkspace'
 
 " rust
 let g:rustfmt_autosave = 1
+autocmd FileType rust :map <F12> :RustTest<CR>
+autocmd FileType rust :map <F8> <Plug>(coc-diagnostic-next)
 
 " syntastic
 set statusline+=%#warningmsg#
