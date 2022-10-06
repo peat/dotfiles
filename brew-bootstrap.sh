@@ -7,4 +7,4 @@
 export PATH=/usr/local/bin:$PATH
 
 # packages
-brew install calc htop macvim node plantuml rbenv telnet
+brew install calc htop macvim node plantuml rbenv telnet tmux
